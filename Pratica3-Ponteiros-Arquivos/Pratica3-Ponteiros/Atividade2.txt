@@ -1,0 +1,36 @@
+2) Discuta, passo a passo, o efeito do seguinte fragmento de código:
+(Envie um txt explicando cada linha.)
+a) int *p, *q;
+declara os ponteiros do tipo int
+
+b) p = malloc (sizeof (int));
+atribui o endereço de memória alocado dinamicamente ao ponteiro p
+
+c) *p = 123;
+atribui o valor 123 ao endereço apontado por p (primeiro malloc)
+
+d) q = malloc (sizeof (int));
+atribui o endereço de memória alocado dinamicamente ao ponteiro q
+
+e) *q = *p;
+atribui o conteúdo apontado por p para q (123)
+
+f) q = p;
+atribui o endereço apontado por p para q (primeiro malloc)
+q passa então a apontar para esse endereço
+
+g) free (p);
+libera o endereço de p (primeiro malloc)
+
+h) free (q); // má ideia...
+esse endereço já foi liberado anteriormente, não é uma boa ideia
+
+i) q = NULL; // boa ideia
+atribui o valor NULL ao ponteiro q que está inutilizado. é uma boa ideia
+
+3)O primeiro sizeof analisa todo o strcut dados, que contém três variáveis inteiras
+(4 bytes em sistema de 32bits), isso resulta no tamanho total do struct: 12 bytes
+
+O segundo analisa somente o primeiro elemento apontado pelo ponteiro 'data', que é o
+primeiro elemento do tipo int: dia. Isso resulta no tamanho desse elemento: 4 bytes
+(em um ambiente de 32bits)
